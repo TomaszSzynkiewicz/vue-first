@@ -20,4 +20,6 @@ export const routes = [
   { path: '/users', name: 'users', component: Users },
   { path: '/articles', name: 'articles', component: Articles },
   { path: '/settings', name: 'settings', component: Settings },
+  { path: '/profile', name: 'profile', component: Settings },
+  { path: '/signout', name: 'signOut', component: Settings }
 ]

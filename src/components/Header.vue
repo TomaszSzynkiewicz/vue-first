@@ -3,20 +3,42 @@
     <div class="container">
       <span class="logo">ADMIN</span>
       <ul class="navi">
-        <li><router-link :to="{ name: 'signIn' }">Users</router-link></li>
-        <li><router-link :to="{ name: 'signIn' }">Articles</router-link></li>
-        <li><router-link :to="{ name: 'signIn' }">Settings</router-link></li>
+        <li><router-link :to="{ name: 'users' }">Users</router-link></li>
+        <li><router-link :to="{ name: 'articles' }">Articles</router-link></li>
+        <li><router-link :to="{ name: 'settings' }">Settings</router-link></li>
       </ul>
-      <ul class="navi navi-profile">
-        <li><router-link :to="{ name: 'signIn' }">My profile</router-link></li>
-        <li><router-link :to="{ name: 'signIn' }">Log Out</router-link></li>
+      <ul class="navi navi-profile" v-if="user">
+        <li><router-link :to="{ name: 'profile' }">My profile ({{ user.email }})</router-link></li>
+        <li><a @click.prevent="signOut">Log Out</a></li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-
+import {
+  mapState,
+  mapActions
+} from 'vuex';
+export default {
+  watch: {
+    user(newValue, oldValue) {
+      if (oldValue !== null && newValue !== oldValue) {
+        this.$router.push({ name: 'signIn' });
+      }
+    }
+  },
+  computed: {
+    ...mapState('user', {
+      user: state => state.user
+    })
+  },
+  methods: {
+    ...mapActions('user', [
+      'signOut'
+    ])
+  }
+}
 </script>
 
 <style lang="scss">

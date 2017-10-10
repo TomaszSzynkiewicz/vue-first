@@ -37,6 +37,7 @@ body {
 }
 
 .content {
+  border: 1px solid #eee;
   background: #fff;
   padding: 24px;
 }
@@ -53,6 +54,7 @@ h3 {
 }
 
 a {
+  cursor: pointer;
   color: #111;
   text-decoration: none;
 
@@ -64,9 +66,7 @@ a {
 .tiny-form {
   width: 320px;
   margin: 24px auto;
-  background: #fff;
   text-align: center;
-  padding: 24px;
 }
 
 .row {
@@ -95,6 +95,7 @@ input[type=password] {
 }
 
 .btn {
+  cursor: pointer;
   line-height: 36px;
   padding: 0 24px;
   text-transform: uppercase;

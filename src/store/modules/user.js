@@ -14,7 +14,10 @@ const getters = {
 const mutations = {
   signInDone(state, payload) {
     state.user = payload;
-    console.log('state', state);
+  },
+  signOut(state) {
+    state.user = null;
+    localStorage.removeItem('token');
   }
 };
 
@@ -22,13 +25,15 @@ const actions = {
   signIn(context, payload) {
     api.signIn(payload)
       .then(data => {
-        console.log('signInDone');
         localStorage.setItem('token', data.token);
         context.commit('signInDone', payload); // passing userData further
       });
   },
-  signOut() {
-
+  authenticateToken(context, token) {
+    context.commit('signInDone', { email: token });
+  },
+  signOut(context) {
+    context.commit('signOut');
   },
   getlist() {
     // use api.getUsers here

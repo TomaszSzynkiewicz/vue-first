@@ -1,5 +1,5 @@
 <template>
-  <div class="tiny-form">
+  <div class="tiny-form content">
     <h1>SignIn</h1>
     <div class="row">
       <input
@@ -18,7 +18,7 @@
     <div class="row">
       <button
         class="btn"
-        @click.prevent="signIn"
+        @click.prevent="signIn(userData)"
         :disabled="!formValid"
       >Login</button>
     </div>
