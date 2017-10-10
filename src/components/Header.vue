@@ -2,7 +2,7 @@
   <div class="page-header">
     <div class="container">
       <span class="logo">ADMIN</span>
-      <ul class="navi">
+      <ul class="navi" v-if="user">
         <li><router-link :to="{ name: 'users' }">Users</router-link></li>
         <li><router-link :to="{ name: 'articles' }">Articles</router-link></li>
         <li><router-link :to="{ name: 'settings' }">Settings</router-link></li>
@@ -56,7 +56,14 @@ export default {
     background: #262626;
 
     .container {
+      height: 100%;
       padding: 0;
+      &:before {
+        content: '';
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
 
     a {
