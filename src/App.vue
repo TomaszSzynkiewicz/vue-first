@@ -22,6 +22,7 @@ export default {
 html {
   font-size: 16px;
   font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
 body {
@@ -51,6 +52,10 @@ h2,
 h3 {
   font-weight: 400;
   padding: 0 0 12px;
+}
+
+p {
+  padding: 12px 0;
 }
 
 a {

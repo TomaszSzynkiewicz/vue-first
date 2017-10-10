@@ -14,10 +14,10 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('token');
   if (to.name !== 'signIn') {
-    const token = localStorage.getItem('token');
     if (token) {
-      if (!store.state.user) {
+      if (!store.state.user.user) {
         store.dispatch('user/authenticateToken', token);
       }
       next();

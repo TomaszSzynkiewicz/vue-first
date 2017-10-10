@@ -18,6 +18,9 @@ const mutations = {
   signOut(state) {
     state.user = null;
     localStorage.removeItem('token');
+  },
+  getListDone(state, payload) {
+    state.list = payload;
   }
 };
 
@@ -35,8 +38,11 @@ const actions = {
   signOut(context) {
     context.commit('signOut');
   },
-  getlist() {
-    // use api.getUsers here
+  getList(context) {
+    api.getUsers()
+      .then(data => {
+        context.commit('getListDone', data);
+      });
   }
 };
 
